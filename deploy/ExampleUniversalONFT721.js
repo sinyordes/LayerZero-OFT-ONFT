@@ -3,9 +3,9 @@ const ONFT_ARGS = require("../constants/onftArgs.json")
 
 module.exports = async function ({ deployments, getNamedAccounts }) {
     const { deploy } = deployments
+    const minGasToStore = 150000
     const { deployer } = await getNamedAccounts()
     console.log(`>>> your address: ${deployer}`)
-
     const lzEndpointAddress = LZ_ENDPOINTS[hre.network.name]
     const onftArgs = ONFT_ARGS[hre.network.name]
     console.log({ onftArgs })
@@ -13,7 +13,7 @@ module.exports = async function ({ deployments, getNamedAccounts }) {
 
     await deploy("ExampleUniversalONFT721", {
         from: deployer,
-        args: [lzEndpointAddress, onftArgs.startMintId, onftArgs.endMintId],
+        args: [minGasToStore, lzEndpointAddress, onftArgs.startMintId, onftArgs.endMintId],
         log: true,
         waitConfirmations: 1,
     })
