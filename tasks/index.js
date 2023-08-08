@@ -161,7 +161,7 @@ task("deployWireCheck", "", require("./deployWireCheck"))
     .addOptionalParam("proxyChain", "")
     .addOptionalParam("proxyContract", "")
 
-task("verifyContract", "", require("./verifyContract.js"))
+task("verifyContract", "", require("./VerifyContract.js"))
     .addParam("contract", "contract name")
 
 //
